@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class RiskLevel extends AppCompatActivity {
 
-    int result = 3;
+    int result = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,10 +18,16 @@ public class RiskLevel extends AppCompatActivity {
         setContentView(R.layout.activity_risk_level);
 
 
+        Bundle extras = getIntent().getExtras();
+        String risklevel = extras.getString ("risklevel");
+        result  = Integer.parseInt(risklevel);
+        result = 2;
+
         View goodImage = findViewById(R.id.goodImage);
         View avgImage = findViewById(R.id.avgImage);
         View badImage = findViewById(R.id.badImage);
         View terribleImage = findViewById(R.id.terribleImage);
+
 
         goodImage.setVisibility(View.GONE);
         avgImage.setVisibility(View.GONE);
