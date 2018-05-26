@@ -1,5 +1,6 @@
 package com.example.thibault.tempname;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +18,11 @@ public class RiskLevel extends AppCompatActivity {
 
         View good_image = findViewById(R.id.goodImage);
 
-        if (result == 0)
+        switch (result){
+            case 0: good_image.setVisibility(View.VISIBLE);
+
+        }
+        /*if (result == 0)
         {
             good_image.setVisibility(View.VISIBLE);
         }
@@ -25,9 +30,15 @@ public class RiskLevel extends AppCompatActivity {
         {
             good_image.setVisibility(View.GONE);
         }
-
+        */
 
         //TODO Display adapted risk level from activity FIRST ( Thibault: I ll take care
+
+    }
+
+    public void goToContact(View v){
+        Intent intent= new Intent(this, Contact.class);
+        startActivity(intent);
 
     }
 }

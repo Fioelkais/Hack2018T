@@ -8,19 +8,19 @@
 
     <ImageView
         android:id="@+id/goodImage"
-        android:layout_width="286dp"
-        android:layout_height="376dp"
-        android:layout_marginTop="36dp"
-        android:src="@drawable/happy_cow"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="37dp" />
-
-    <Button
-        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="458dp" />
+        android:src="@drawable/happy_cow"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <Button
+        android:id="@+id/toContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="goToContact"
+        android:text="Learn More"
+        tools:layout_editor_absoluteX="135dp"
+        tools:layout_editor_absoluteY="447dp" />
 
 </android.support.constraint.ConstraintLayout>
