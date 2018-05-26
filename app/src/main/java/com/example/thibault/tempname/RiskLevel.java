@@ -9,6 +9,6 @@ public class RiskLevel extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_risk_level);
-        //TODO Display adapted risk level from activity FIRST ( Thibault: I ll take care 
+        //TODO Display adapted risk level from activity FIRST ( Thibault: I ll take care
     }
 }
