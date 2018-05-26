@@ -7,13 +7,13 @@
     tools:context="com.example.thibault.tempname.RiskLevel">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/goodImage"
         android:layout_width="286dp"
         android:layout_height="376dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="36dp"
         android:src="@drawable/happy_cow"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp" />
+        tools:layout_editor_absoluteX="37dp" />
 
     <Button
         android:id="@+id/button2"
