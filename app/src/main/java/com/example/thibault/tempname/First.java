@@ -3,6 +3,8 @@ package com.example.thibault.tempname;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,7 +31,8 @@ public class First extends AppCompatActivity {
     EditText answer ;
     Button next,yes,no,yes2,no2;
     Spinner yn,spinner1;
-    int riskscore,t , size, score;
+    int riskscore,t , size, score, down, death;
+    boolean updated;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,9 @@ public class First extends AppCompatActivity {
         spinner1 = (Spinner) findViewById(R.id.spinner1);
         size=0;
         score=0;
+        down=0;
+        death=0;
+        updated=false;
         //yn.set;
 
         t=1;
@@ -62,6 +68,7 @@ public class First extends AppCompatActivity {
     }
 
     public void askQuestion(int i){
+        updated=false;
         //question1.setText(getString(getResources().getIdentifier("question"+i,this.getPackageName())));
         question.setText(getResources().getString(getResources().getIdentifier("question"+i,"string","com.example.thibault.tempname")));
         //answer.setText(getString(R.string.answer));
@@ -104,7 +111,33 @@ public class First extends AppCompatActivity {
 
     }
 
-    public void check(View v) {
+    public void check(View view) {
+
+
+
+        switch (t){
+            case 1:
+                size= Integer.parseInt(answer.getText().toString());
+                break;
+            case 2:
+                down= Integer.parseInt(answer.getText().toString());
+                break;
+            case 3:
+                death= Integer.parseInt(answer.getText().toString());
+                break;
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+                if(((ColorDrawable) view.getBackground()).getColor()== Color.parseColor("#ffff0000")){
+                score+=1;
+                updated=true;
+                }
+                break;
+
+        }
+
         final AlertDialog alertDialog = new AlertDialog.Builder(First.this).create();
         alertDialog.setTitle("Is this your definitive answer?");
         alertDialog.setMessage("");
@@ -121,28 +154,19 @@ public class First extends AppCompatActivity {
                         else{
                             t+=1;
                             riskscore=riskscore+5;//TODO change to depend on answer answer.gettext() case might no be used if going with compute risk function
-                            //spinner1.getSelectedItem();
-
+                            //spinner1.getSelectedItem(
                             askQuestion(t);
                         }
-                        switch (t){
-                            case 1:
-                                size= Integer.parseInt(answer.getText().toString());
-                                break;
-                            case 2:
-                                break;
-                            case 3:
-                                break;
-                            case 4:
-                                break;
 
-                        }
 
                     }
                 });
         alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "NO",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
+                        if(updated){
+                            score-=1;
+                        }
                         dialog.dismiss();
                     }
                 });
