@@ -20,25 +20,32 @@ import android.widget.TextView;
 public class First extends AppCompatActivity {
 
 
-
+    TextView question;
+    EditText answer ;
+    Button next;
+    int riskscore;
+    int t;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
+        next=(Button) findViewById(R.id.button);
+        question= (TextView) findViewById(R.id.question1);
+        answer=(EditText) findViewById(R.id.answer1);
 
-        TextView question1 = (TextView) findViewById(R.id.question1);
-        EditText answer1 = (EditText) findViewById(R.id.answer1);
-        Button next = (Button) findViewById(R.id.button);
+        t=1;
 
-        int t =1;
+        riskscore=0;
+        askQuestion(t);
 
-        int riskscore=0;
+    }
 
-        question1.setText(getString(R.string.question1));
-        answer1.setText(getString(R.string.answer1));
+    public void askQuestion(int i){
+        //question1.setText(getString(getResources().getIdentifier("question"+i,this.getPackageName())));
+        question.setText(getResources().getString(getResources().getIdentifier("question"+i,"string","com.example.thibault.tempname")));
+        answer.setText(getString(R.string.answer));
         next.setText("Next");
-
 
     }
 
@@ -46,12 +53,22 @@ public class First extends AppCompatActivity {
         final AlertDialog alertDialog = new AlertDialog.Builder(First.this).create();
         alertDialog.setTitle("Is this your definitive answer?");
         alertDialog.setMessage("");
-        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "YES",
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "YES",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        //TODO Ask next question + update risk factor
-                        //Intent intent= new Intent(this, efw.class);
-                        //startActivity(intent); 
+
+                        if (t==8)//TODO change to last question
+                        {
+                            //TODO go to risk level and send intent
+                            Intent intent= new Intent(getApplicationContext(), RiskLevel.class);
+                            startActivity(intent);
+                        }
+                        else{
+                            t+=1;
+                            riskscore=riskscore+5;//TODO change to depend on answer answer.gettext() case might no be used if going with compute risk function
+                            askQuestion(t);
+                        }
+
                     }
                 });
         alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "NO",
@@ -62,6 +79,14 @@ public class First extends AppCompatActivity {
                 });
         alertDialog.show();
     }
+
+    public void computeRisk(){
+        //TODO Compute risk from answers
+    }
+
+    public void goToRisk(View v){
+        Intent intent= new Intent(this, RiskLevel.class);
+        startActivity(intent);
+    }
 }
 
-//TODO add ge

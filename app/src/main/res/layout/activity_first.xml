@@ -44,4 +44,15 @@
         app:layout_constraintTop_toBottomOf="@+id/question1"
         app:layout_constraintHorizontal_bias="0.503" />
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Button"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="SHORTCUT" />
+
 </android.support.constraint.ConstraintLayout>

@@ -1,15 +1,10 @@
 <resources>
     <string name="app_name">TempName</string>
-    <string name="question1">TempName</string>
-    <string name="answer1">TempName</string>
+    <string name="answer">Please write your answer here</string>
+    <string name="question1">BLABLABLA</string>
     <string name="question2">TempName</string>
-    <string name="answer2">TempName</string>
     <string name="question3">TempName</string>
-    <string name="answer3">TempName</string>
     <string name="question4">TempName</string>
-    <string name="answer4">TempName</string>
     <string name="question5">TempName</string>
-    <string name="answer5">TempName</string>
-
 
 </resources>
