@@ -8,12 +8,12 @@
 
     <ImageView
         android:id="@+id/goodImage"
-        android:layout_width="wrap_content"
-        android:layout_height="386dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="287dp"
+        android:layout_height="243dp"
+        android:layout_marginTop="28dp"
         android:src="@drawable/happy_cow"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:layout_editor_absoluteX="37dp" />
 
     <Button
         android:id="@+id/toContact"
@@ -45,17 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/terrible_cow"
-        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteX="160dp"
         tools:layout_editor_absoluteY="0dp" />
-
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="123dp"
-        android:layout_height="42dp"
-        android:ems="10"
-        android:inputType="number"
-        android:text="Name"
-        tools:layout_editor_absoluteX="135dp"
-        tools:layout_editor_absoluteY="394dp" />
 
 </android.support.constraint.ConstraintLayout>

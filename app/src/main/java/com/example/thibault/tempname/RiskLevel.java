@@ -38,17 +38,6 @@ public class RiskLevel extends AppCompatActivity {
             case 3: terribleImage.setVisibility(View.VISIBLE);
                     break;
         }
-        /*if (result == 0)
-        {
-            goodImage.setVisibility(View.VISIBLE);
-        }
-        else
-        {
-            goodImage.setVisibility(View.GONE);
-        }
-        */
-
-        //TODO Display adapted risk level from activity FIRST ( Thibault: I ll take care
 
     }
 
