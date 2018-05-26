@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RiskLevel"></activity>
+        <activity android:name=".RiskLevel" />
+        <activity android:name=".Contact"></activity>
     </application>
 
 </manifest>
