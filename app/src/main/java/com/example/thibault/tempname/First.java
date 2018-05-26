@@ -1,5 +1,6 @@
 package com.example.thibault.tempname;
 
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -24,9 +25,9 @@ public class First extends AppCompatActivity {
         EditText answer1 = (EditText) findViewById(R.id.answer1);
         Button next = (Button) findViewById(R.id.button);
 
-        AlertDialog alertDialog = new AlertDialog.Builder(First.this).create();
-        alertDialog.setTitle("Are you sure?");
-        alertDialog.setMessage("Alert message to be shown");
+        final AlertDialog alertDialog = new AlertDialog.Builder(First.this).create();
+        alertDialog.setTitle("Is this your definitive answer?");
+        alertDialog.setMessage("");
         alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
@@ -39,18 +40,19 @@ public class First extends AppCompatActivity {
 
         int riskscore=0;
 
-        while (t<6) {
-
 
             question1.setText(getString(R.string.question1));
             answer1.setText(getString(R.string.answer1));
             next.setText("Next");
 
-            if (answer1.getText())
+            next.setOnClickListener( new View.OnClickListener() {
 
-            t++;
+                @Override
+                public void onClick(View v) {
+                    alertDialog.show();
+                }
+            });
 
-        }
 
     }
 }
