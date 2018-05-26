@@ -12,6 +12,7 @@ import android.support.v7.widget.ButtonBarLayout;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -73,12 +74,20 @@ public class First extends AppCompatActivity {
         question.setText(getResources().getString(getResources().getIdentifier("question"+i,"string","com.example.thibault.tempname")));
         //answer.setText(getString(R.string.answer));
         next.setText("");
+        answer.setHint("Answer here");
 
         List<String> values;
         switch (i){
             case 4: //spinner1.setVisibility(View.VISIBLE);
                     //values= Arrays.asList("yes", "no");
                     //addItemsOnSpinner1(values);
+                View view = this.getCurrentFocus();
+                InputMethodManager imm = (InputMethodManager)getSystemService(this.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                
+                next.setVisibility(View.INVISIBLE);
+                yes.setText("yes");
+                no.setText("no");
                     answer.setVisibility(View.INVISIBLE);
                     yes.setVisibility(View.VISIBLE);
                     yes.setBackgroundColor(getResources().getColor(R.color.red));
@@ -99,6 +108,8 @@ public class First extends AppCompatActivity {
                     no.setBackgroundColor(getResources().getColor(R.color.green));
                     no2.setText("Tapioca");
                     no2.setBackgroundColor(getResources().getColor(R.color.red));
+                    yes2.setVisibility(View.VISIBLE);
+                    no2.setVisibility(View.VISIBLE);
                     break;
             case 8: yes.setText("50-70g Mg oxide/cow/day");
                     yes2.setText("lower than recommended");
@@ -138,6 +149,21 @@ public class First extends AppCompatActivity {
 
         }
 
+
+        if (t==8)
+        {
+            //TODO go to risk level and send intent
+            Intent intent= new Intent(getApplicationContext(), RiskLevel.class);
+            intent.putExtra("risklevel",(score+1)/2);
+            startActivity(intent);
+        }
+        else{
+            t+=1;
+            riskscore=riskscore+5;//TODO change to depend on answer answer.gettext() case might no be used if going with compute risk function
+            //spinner1.getSelectedItem(
+            askQuestion(t);
+        }
+        /*
         final AlertDialog alertDialog = new AlertDialog.Builder(First.this).create();
         alertDialog.setTitle("Is this your definitive answer?");
         alertDialog.setMessage("");
@@ -170,7 +196,7 @@ public class First extends AppCompatActivity {
                         dialog.dismiss();
                     }
                 });
-        alertDialog.show();
+        alertDialog.show();*/
     }
 
     public void computeRisk(){
