@@ -9,18 +9,53 @@
     <ImageView
         android:id="@+id/goodImage"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="386dp"
+        android:layout_marginTop="8dp"
         android:src="@drawable/happy_cow"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp" />
+        tools:layout_editor_absoluteX="0dp" />
 
     <Button
         android:id="@+id/toContact"
-        android:layout_width="wrap_content"
+        android:layout_width="112dp"
         android:layout_height="wrap_content"
         android:onClick="goToContact"
         android:text="Learn More"
         tools:layout_editor_absoluteX="135dp"
         tools:layout_editor_absoluteY="447dp" />
+
+    <ImageView
+        android:id="@+id/avgImage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/avg_cow"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <ImageView
+        android:id="@+id/badImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/sad_cow"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <ImageView
+        android:id="@+id/terribleImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/terrible_cow"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="123dp"
+        android:layout_height="42dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="Name"
+        tools:layout_editor_absoluteX="135dp"
+        tools:layout_editor_absoluteY="394dp" />
 
 </android.support.constraint.ConstraintLayout>
