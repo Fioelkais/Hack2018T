@@ -14,7 +14,12 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
+
+
 public class First extends AppCompatActivity {
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,36 +30,35 @@ public class First extends AppCompatActivity {
         EditText answer1 = (EditText) findViewById(R.id.answer1);
         Button next = (Button) findViewById(R.id.button);
 
+        int t =1;
+
+        int riskscore=0;
+
+        question1.setText(getString(R.string.question1));
+        answer1.setText(getString(R.string.answer1));
+        next.setText("Next");
+
+
+    }
+
+    public void check(View v) {
         final AlertDialog alertDialog = new AlertDialog.Builder(First.this).create();
         alertDialog.setTitle("Is this your definitive answer?");
         alertDialog.setMessage("");
-        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "YES",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        //TODO Ask next question + update risk factor
+                    }
+                });
+        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "NO",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                     }
                 });
         alertDialog.show();
-
-        int t =1;
-
-        int riskscore=0;
-
-
-            question1.setText(getString(R.string.question1));
-            answer1.setText(getString(R.string.answer1));
-            next.setText("Next");
-
-            next.setOnClickListener( new View.OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    alertDialog.show();
-                }
-            });
-
-
     }
 }
 
-
+//TODO add ge
