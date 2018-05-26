@@ -138,6 +138,21 @@ public class First extends AppCompatActivity {
 
         }
 
+
+        if (t==8)
+        {
+            //TODO go to risk level and send intent
+            Intent intent= new Intent(getApplicationContext(), RiskLevel.class);
+            intent.putExtra("risklevel",(score+1)/2);
+            startActivity(intent);
+        }
+        else{
+            t+=1;
+            riskscore=riskscore+5;//TODO change to depend on answer answer.gettext() case might no be used if going with compute risk function
+            //spinner1.getSelectedItem(
+            askQuestion(t);
+        }
+        /*
         final AlertDialog alertDialog = new AlertDialog.Builder(First.this).create();
         alertDialog.setTitle("Is this your definitive answer?");
         alertDialog.setMessage("");
@@ -170,7 +185,7 @@ public class First extends AppCompatActivity {
                         dialog.dismiss();
                     }
                 });
-        alertDialog.show();
+        alertDialog.show();*/
     }
 
     public void computeRisk(){
