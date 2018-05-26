@@ -90,6 +90,7 @@ public class First extends AppCompatActivity {
                     //values= Arrays.asList("yes", "no");
                     //addItemsOnSpinner1(values);
 
+                layout.setBackgroundResource(R.drawable.witness);
                 View view = this.getCurrentFocus();
                 InputMethodManager imm = (InputMethodManager)getSystemService(this.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
@@ -104,12 +105,15 @@ public class First extends AppCompatActivity {
                     no.setVisibility(View.VISIBLE);
                     break;
             case 5:
+                    layout.setBackgroundResource(R.drawable.phos);
                     break;
             case 6:
+                    layout.setBackgroundResource(R.drawable.soiltest);
                     yes.setBackgroundColor(getResources().getColor(R.color.green));
                     no.setBackgroundColor(getResources().getColor(R.color.red));
                     break;
             case 7:
+                    layout.setBackgroundResource(R.drawable.feed);
                     yes.setText("Palm Kerrel");
                     yes2.setText("Fodder beet");
                     yes2.setBackgroundColor(getResources().getColor(R.color.yellow));
@@ -121,7 +125,9 @@ public class First extends AppCompatActivity {
                     yes2.setVisibility(View.VISIBLE);
                     no2.setVisibility(View.VISIBLE);
                     break;
-            case 8: yes.setText("50-70g Mg oxide/cow/day");
+            case 8:
+                layout.setBackgroundResource(R.drawable.mag);
+                yes.setText("50-70g Mg oxide/cow/day");
                     yes2.setText("lower than recommended");
                     //TODO Add color yellow
                     no.setText("60g ");
