@@ -73,12 +73,15 @@ public class First extends AppCompatActivity {
         question.setText(getResources().getString(getResources().getIdentifier("question"+i,"string","com.example.thibault.tempname")));
         //answer.setText(getString(R.string.answer));
         next.setText("");
+        answer.setHint("Answer here");
 
         List<String> values;
         switch (i){
             case 4: //spinner1.setVisibility(View.VISIBLE);
                     //values= Arrays.asList("yes", "no");
                     //addItemsOnSpinner1(values);
+                yes.setText("yes");
+                no.setText("no");
                     answer.setVisibility(View.INVISIBLE);
                     yes.setVisibility(View.VISIBLE);
                     yes.setBackgroundColor(getResources().getColor(R.color.red));
@@ -99,6 +102,8 @@ public class First extends AppCompatActivity {
                     no.setBackgroundColor(getResources().getColor(R.color.green));
                     no2.setText("Tapioca");
                     no2.setBackgroundColor(getResources().getColor(R.color.red));
+                    yes2.setVisibility(View.VISIBLE);
+                    no2.setVisibility(View.VISIBLE);
                     break;
             case 8: yes.setText("50-70g Mg oxide/cow/day");
                     yes2.setText("lower than recommended");
