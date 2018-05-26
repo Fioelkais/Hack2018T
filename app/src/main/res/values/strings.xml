@@ -5,10 +5,11 @@
     <string name="question2">How many down cows in your last season?</string>
     <string name="question3">How many cows died in your last season? </string>
     <string name="question4">Have you witnessed this recently? </string>
-    <string name="question5">What is your feed supplement during pre/post calving season?</string>
-    <string name="question6">Do you use phosphate or potassium fertilizer?</string>
-    <string name="question7">Do you supply magnesium supplement during calving?</string>
-    <string name="question8">Do you test and improve your soil quality?</string>
+    <string name="question5">Do you use phosphate or potassium fertilizer?</string>
+    <string name="question6">Do you test and improve your soil quality?</string>
+    <string name="question7">What is your feed supplement during pre/post calving season?</string>
+
+    <string name="question8">Do you supply magnesium supplement during calving?</string>
 
 
 

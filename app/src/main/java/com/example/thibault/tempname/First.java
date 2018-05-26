@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -34,6 +36,7 @@ public class First extends AppCompatActivity {
     Spinner yn,spinner1;
     int riskscore,t , size, score, down, death;
     boolean updated;
+    ConstraintLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +56,8 @@ public class First extends AppCompatActivity {
         down=0;
         death=0;
         updated=false;
-        //yn.set;
+        //yn.set;\
+        layout=(ConstraintLayout)findViewById(R.id.activity_first);
 
         t=1;
 
@@ -64,6 +68,7 @@ public class First extends AppCompatActivity {
         no.setVisibility(View.INVISIBLE);
         yes2.setVisibility(View.INVISIBLE);
         no2.setVisibility(View.INVISIBLE);
+        question.setVisibility(View.INVISIBLE);
         askQuestion(t);
 
     }
@@ -77,14 +82,18 @@ public class First extends AppCompatActivity {
         answer.setHint("Answer here");
 
         List<String> values;
+
         switch (i){
+            case 1: layout.setBackgroundResource(R.drawable.slide2);
+            break;
             case 4: //spinner1.setVisibility(View.VISIBLE);
                     //values= Arrays.asList("yes", "no");
                     //addItemsOnSpinner1(values);
+
                 View view = this.getCurrentFocus();
                 InputMethodManager imm = (InputMethodManager)getSystemService(this.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-                
+
                 next.setVisibility(View.INVISIBLE);
                 yes.setText("yes");
                 no.setText("no");
@@ -103,6 +112,7 @@ public class First extends AppCompatActivity {
             case 7:
                     yes.setText("Palm Kerrel");
                     yes2.setText("Fodder beet");
+                    yes2.setBackgroundColor(getResources().getColor(R.color.yellow));
                     //TODO Add color yellow
                     no.setText("Hay");
                     no.setBackgroundColor(getResources().getColor(R.color.green));
