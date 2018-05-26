@@ -220,7 +220,7 @@ public class First extends AppCompatActivity {
     }
 
     public void goToRisk(View v){
-        Intent intent= new Intent(this, RiskLevel.class);
+        Intent intent= new Intent(this, Contact.class);
         startActivity(intent);
     }
 
