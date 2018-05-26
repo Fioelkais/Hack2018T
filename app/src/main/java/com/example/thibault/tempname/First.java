@@ -12,6 +12,7 @@ import android.support.v7.widget.ButtonBarLayout;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -80,6 +81,11 @@ public class First extends AppCompatActivity {
             case 4: //spinner1.setVisibility(View.VISIBLE);
                     //values= Arrays.asList("yes", "no");
                     //addItemsOnSpinner1(values);
+                View view = this.getCurrentFocus();
+                InputMethodManager imm = (InputMethodManager)getSystemService(this.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                
+                next.setVisibility(View.INVISIBLE);
                 yes.setText("yes");
                 no.setText("no");
                     answer.setVisibility(View.INVISIBLE);
