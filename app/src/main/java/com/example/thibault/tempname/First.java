@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.ButtonBarLayout;
 import android.text.method.LinkMovementMethod;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -79,13 +80,18 @@ public class First extends AppCompatActivity {
         question.setText(getResources().getString(getResources().getIdentifier("question"+i,"string","com.example.thibault.tempname")));
         //answer.setText(getString(R.string.answer));
         next.setText("");
+        answer.setText("");
         answer.setHint("Answer here");
 
         List<String> values;
 
         switch (i){
-            case 1: layout.setBackgroundResource(R.drawable.slide2);
+            case 1: layout.setBackgroundResource(R.drawable.q1);
             break;
+            case 2: layout.setBackgroundResource(R.drawable.downs);
+                break;
+            case 3: layout.setBackgroundResource(R.drawable.death);
+                break;
             case 4: //spinner1.setVisibility(View.VISIBLE);
                     //values= Arrays.asList("yes", "no");
                     //addItemsOnSpinner1(values);
@@ -127,10 +133,12 @@ public class First extends AppCompatActivity {
                     break;
             case 8:
                 layout.setBackgroundResource(R.drawable.mag);
-                yes.setText("50-70g Mg oxide/cow/day");
-                    yes2.setText("lower than recommended");
+                yes.setText("+-60g per cow per day");
+                yes.setGravity(Gravity.CENTER_HORIZONTAL);
+                    yes2.setText("less than 60g");
                     //TODO Add color yellow
                     no.setText("60g ");
+                    no.setVisibility(View.INVISIBLE);
                     no2.setText("no");
                     break;
         }
@@ -148,9 +156,15 @@ public class First extends AppCompatActivity {
                 break;
             case 2:
                 down= Integer.parseInt(answer.getText().toString());
+                if((down*100)/size>3){
+                    score+=1;
+                }
                 break;
             case 3:
                 death= Integer.parseInt(answer.getText().toString());
+                if((death*100)/size>3){
+                    score+=1;
+                }
                 break;
             case 4:
             case 5:
@@ -170,7 +184,7 @@ public class First extends AppCompatActivity {
         {
             //TODO go to risk level and send intent
             Intent intent= new Intent(getApplicationContext(), RiskLevel.class);
-            intent.putExtra("risklevel",(score+1)/2);
+            intent.putExtra("risklevel",(Integer)(score+1)/2);
             startActivity(intent);
         }
         else{
@@ -228,7 +242,7 @@ public class First extends AppCompatActivity {
         spinner1.setOnItemSelectedListener(new CustomOnItemSelectedListener());
     }*/
 
-    public void addItemsOnSpinner1(List<String> values) {
+    /*public void addItemsOnSpinner1(List<String> values) {
         List<String> list = new ArrayList<String>();
         list.add("list 1");
         list.add("list 2");
@@ -237,6 +251,6 @@ public class First extends AppCompatActivity {
                 android.R.layout.simple_spinner_item, values);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner1.setAdapter(dataAdapter);
-    }
+    }*/
 }
 
