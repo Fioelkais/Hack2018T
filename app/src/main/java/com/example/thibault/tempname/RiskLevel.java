@@ -1,6 +1,7 @@
 package com.example.thibault.tempname;
 
 import android.content.Intent;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,7 @@ public class RiskLevel extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_risk_level);
+        ConstraintLayout layout = (ConstraintLayout) findViewById(R.id.activity_risk_level);
 
 
         Bundle extras = getIntent().getExtras();
@@ -34,13 +36,17 @@ public class RiskLevel extends AppCompatActivity {
         terribleImage.setVisibility(View.GONE);
 
         switch (result){
-            case 0: goodImage.setVisibility(View.VISIBLE);
+            case 0: //goodImage.setVisibility(View.VISIBLE);
+                    layout.setBackgroundResource(R.drawable.happy_cow);
                     break;
-            case 1: avgImage.setVisibility(View.VISIBLE);
+            case 1: //avgImage.setVisibility(View.VISIBLE);
+                layout.setBackgroundResource(R.drawable.avg_cow);
                     break;
-            case 2: badImage.setVisibility(View.VISIBLE);
+            case 2: //badImage.setVisibility(View.VISIBLE);
+                layout.setBackgroundResource(R.drawable.sad_cow);
                     break;
-            case 3: terribleImage.setVisibility(View.VISIBLE);
+            case 3: //terribleImage.setVisibility(View.VISIBLE);
+                layout.setBackgroundResource(R.drawable.terrible_cow);
                     break;
         }
 

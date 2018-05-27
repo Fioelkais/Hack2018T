@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TempName</string>
+    <string name="app_name">Your Cow Matters</string>
     <string name="answer">Please write your answer here</string>
     <string name="question1">How many cows are in your herd?</string>
     <string name="question2">How many down cows in your last season?</string>
