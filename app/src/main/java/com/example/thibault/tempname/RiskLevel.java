@@ -1,6 +1,7 @@
 package com.example.thibault.tempname;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -68,6 +69,13 @@ public class RiskLevel extends AppCompatActivity {
                     break;
         }
 
+    }
+
+    public void onClick(View view){
+        Intent sendIntent = new Intent(Intent.ACTION_VIEW);
+        sendIntent.setData(Uri.parse("sms:"));
+        sendIntent.putExtra("sms_body", "Hey, I think you should check your farm as well: www.playstore.com/yourcowmatters");
+        startActivity(sendIntent);
     }
 
     public void goToContact(View v){
