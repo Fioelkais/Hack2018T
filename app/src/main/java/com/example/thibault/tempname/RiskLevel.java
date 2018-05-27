@@ -83,4 +83,10 @@ public class RiskLevel extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+    public void callHelp(View v){
+        String phone = "+640800765854";
+        Intent callintent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
+        startActivity(callintent);
+    }
 }
