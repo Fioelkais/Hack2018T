@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 public class RiskLevel extends AppCompatActivity {
 
     int result = 0;
@@ -22,9 +24,10 @@ public class RiskLevel extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         int risklevel = extras.getInt ("risklevel");
+        int size=extras.getInt("size");
         result = risklevel;
 
-        View goodImage = findViewById(R.id.goodImage);
+        /*View goodImage = findViewById(R.id.goodImage);
         View avgImage = findViewById(R.id.avgImage);
         View badImage = findViewById(R.id.badImage);
         View terribleImage = findViewById(R.id.terribleImage);
@@ -33,19 +36,34 @@ public class RiskLevel extends AppCompatActivity {
         goodImage.setVisibility(View.GONE);
         avgImage.setVisibility(View.GONE);
         badImage.setVisibility(View.GONE);
-        terribleImage.setVisibility(View.GONE);
+        terribleImage.setVisibility(View.GONE);*/
+
+        TextView info=(TextView) findViewById(R.id.textView);
 
         switch (result){
             case 0: //goodImage.setVisibility(View.VISIBLE);
                     layout.setBackgroundResource(R.drawable.happy_cow);
+                    info.setText("Congratulations, you're an amazing farmer!");
                     break;
             case 1: //avgImage.setVisibility(View.VISIBLE);
                 layout.setBackgroundResource(R.drawable.avg_cow);
+                int nbr=size/50;
+                int money=nbr*300;
+                int time=nbr*4;
+                info.setText("You could save "+money+" $ and "+time+" hours by getting to industry standards");
                     break;
             case 2: //badImage.setVisibility(View.VISIBLE);
                 layout.setBackgroundResource(R.drawable.sad_cow);
+                nbr=size/25;
+                money=nbr*300;
+                time=nbr*4;
+                info.setText("You could save "+money+" $ and "+time+" hours by getting to industry standards");
                     break;
             case 3: //terribleImage.setVisibility(View.VISIBLE);
+                nbr=size/12;
+                money=nbr*300;
+                time=nbr*4;
+                info.setText("You could save "+money+" $ and "+time+" hours by getting to industry standards");
                 layout.setBackgroundResource(R.drawable.terrible_cow);
                     break;
         }

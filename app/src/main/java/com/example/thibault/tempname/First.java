@@ -185,6 +185,7 @@ public class First extends AppCompatActivity {
             //TODO go to risk level and send intent
             Intent intent= new Intent(getApplicationContext(), RiskLevel.class);
             intent.putExtra("risklevel",(Integer)(score+1)/2);
+            intent.putExtra("size", size);
             startActivity(intent);
         }
         else{
