@@ -5,12 +5,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.media.MediaPlayer;
+import android.speech.tts.TextToSpeech;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.ButtonBarLayout;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,9 +29,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 
-public class First extends AppCompatActivity {
+public class First extends AppCompatActivity implements TextToSpeech.OnInitListener{
 
 
     TextView question;
@@ -38,6 +42,8 @@ public class First extends AppCompatActivity {
     int riskscore,t , size, score, down, death;
     boolean updated;
     ConstraintLayout layout;
+    private Button btnSpeak;
+    TextToSpeech tts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +66,9 @@ public class First extends AppCompatActivity {
         //yn.set;\
         layout=(ConstraintLayout)findViewById(R.id.activity_first);
 
+        //final MediaPlayer mp = MediaPlayer.create(this, R.raw.q1);
+
+        tts = new TextToSpeech(this, this);
         t=1;
 
         riskscore=0;
@@ -147,9 +156,6 @@ public class First extends AppCompatActivity {
     }
 
     public void check(View view) {
-
-
-
         switch (t){
             case 1:
                 size= Integer.parseInt(answer.getText().toString());
@@ -234,6 +240,10 @@ public class First extends AppCompatActivity {
         //TODO Compute risk from answers
     }
 
+    public void audio(View v){
+       speakOut();
+    }
+
     public void goToRisk(View v){
         Intent intent= new Intent(this, Contact.class);
         startActivity(intent);
@@ -253,5 +263,42 @@ public class First extends AppCompatActivity {
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner1.setAdapter(dataAdapter);
     }*/
+
+    @Override
+    public void onDestroy() {
+        // Don't forget to shutdown tts!
+        if (tts != null) {
+            tts.stop();
+            tts.shutdown();
+        }
+        super.onDestroy();
+    }
+
+    @Override
+    public void onInit(int status) {
+
+        if (status == TextToSpeech.SUCCESS) {
+
+            int result = tts.setLanguage(Locale.US);
+
+            if (result == TextToSpeech.LANG_MISSING_DATA
+                    || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Log.e("TTS", "This Language is not supported");
+            } else {
+                //btnSpeak.setEnabled(true);
+                //speakOut();
+            }
+
+        } else {
+            Log.e("TTS", "Initilization Failed!");
+        }
+
+    }
+    private void speakOut() {
+
+        String text = question.getText().toString();
+
+        tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+    }
 }
 
